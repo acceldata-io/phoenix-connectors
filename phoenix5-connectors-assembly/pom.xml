@@ -39,27 +39,11 @@
   <dependencies>
     <dependency>
       <groupId>org.apache.phoenix</groupId>
-      <artifactId>phoenix5-hive</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.phoenix</groupId>
-      <artifactId>phoenix5-hive-shaded</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.phoenix</groupId>
       <artifactId>phoenix5-hive4</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.phoenix</groupId>
       <artifactId>phoenix5-hive4-shaded</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.phoenix</groupId>
-      <artifactId>phoenix5-spark</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.phoenix</groupId>
-      <artifactId>phoenix5-spark-shaded</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.phoenix</groupId>
@@ -77,46 +61,6 @@
         <artifactId>exec-maven-plugin</artifactId>
         <groupId>org.codehaus.mojo</groupId>
         <executions>
-          <execution>
-            <id>hive3 without version</id>
-            <phase>package</phase>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <configuration>
-              <executable>ln</executable>
-              <workingDirectory>${project.basedir}/../phoenix5-hive/target</workingDirectory>
-              <arguments>
-                <argument>-fnsv</argument>
-                <argument>
-                  phoenix5-hive-${project.version}.jar
-                </argument>
-                <argument>
-                  phoenix5-hive.jar
-                </argument>
-              </arguments>
-            </configuration>
-          </execution>
-          <execution>
-            <id>hive3-shaded without version</id>
-            <phase>package</phase>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <configuration>
-              <executable>ln</executable>
-              <workingDirectory>${project.basedir}/../phoenix5-hive-shaded/target</workingDirectory>
-              <arguments>
-                <argument>-fnsv</argument>
-                <argument>
-                  phoenix5-hive-shaded-${project.version}.jar
-                </argument>
-                <argument>
-                  phoenix5-hive-shaded.jar
-                </argument>
-              </arguments>
-            </configuration>
-          </execution>
           <execution>
             <id>hive4 without version</id>
             <phase>package</phase>
@@ -153,46 +97,6 @@
                 </argument>
                 <argument>
                   phoenix5-hive4-shaded.jar
-                </argument>
-              </arguments>
-            </configuration>
-          </execution>
-          <execution>
-            <id>spark without version</id>
-            <phase>package</phase>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <configuration>
-              <executable>ln</executable>
-              <workingDirectory>${project.basedir}/../phoenix5-spark/target</workingDirectory>
-              <arguments>
-                <argument>-fnsv</argument>
-                <argument>
-                  phoenix5-spark-${project.version}.jar
-                </argument>
-                <argument>
-                  phoenix5-spark.jar
-                </argument>
-              </arguments>
-            </configuration>
-          </execution>
-          <execution>
-            <id>spark-shaded without version</id>
-            <phase>package</phase>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <configuration>
-              <executable>ln</executable>
-              <workingDirectory>${project.basedir}/../phoenix5-spark-shaded/target</workingDirectory>
-              <arguments>
-                <argument>-fnsv</argument>
-                <argument>
-                  phoenix5-spark-shaded-${project.version}.jar
-                </argument>
-                <argument>
-                  phoenix5-spark-shaded.jar
                 </argument>
               </arguments>
             </configuration>
@@ -286,15 +190,7 @@
       <dependencies>
         <dependency>
           <groupId>org.apache.phoenix</groupId>
-          <artifactId>phoenix5-hive-shaded</artifactId>
-        </dependency>
-        <dependency>
-          <groupId>org.apache.phoenix</groupId>
           <artifactId>phoenix5-hive4-shaded</artifactId>
-        </dependency>
-        <dependency>
-          <groupId>org.apache.phoenix</groupId>
-          <artifactId>phoenix5-spark-shaded</artifactId>
         </dependency>
         <dependency>
           <groupId>org.apache.phoenix</groupId>

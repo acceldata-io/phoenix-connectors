@@ -72,7 +72,6 @@
   <modules>
     <!-- Changing the module order here may cause maven to get stuck in an
       infinite loop -->
-    <module>phoenix5-hive-shaded</module>
     <module>phoenix5-hive4</module>
     <module>phoenix5-hive4-shaded</module>
     <module>phoenix5-spark3</module>
@@ -577,32 +576,12 @@
       </dependency>
       <dependency>
         <groupId>org.apache.phoenix</groupId>
-        <artifactId>phoenix5-spark</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.phoenix</groupId>
-        <artifactId>phoenix5-spark-shaded</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.phoenix</groupId>
         <artifactId>phoenix5-spark3</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.phoenix</groupId>
         <artifactId>phoenix5-spark3-shaded</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.phoenix</groupId>
-        <artifactId>phoenix5-hive</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.phoenix</groupId>
-        <artifactId>phoenix5-hive-shaded</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
