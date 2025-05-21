@@ -35,7 +35,7 @@
   <properties>
     <top.dir>${project.basedir}/..</top.dir>
     <test.tmp.dir>${project.build.directory}/tmp</test.tmp.dir>
-    <hive.version>${hive3.version}</hive.version>
+    <hive.version>${hive4.version}</hive.version>
   </properties>
 
   <dependencies>
@@ -102,24 +102,11 @@
       <version>${hive.version}</version>
       <scope>provided</scope>
     </dependency>
-    <!-- These are actually different between phoenix 5 and phoenix 4 -->
-    <dependency>
-      <groupId> org.apache.hive</groupId>
-      <artifactId>hive-standalone-metastore</artifactId>
-      <version>${hive.version}</version>
-      <scope>provided</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>com.google.guava</groupId>
-          <artifactId>guava</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
     <!-- Dependencies below should be the same for Hive, Spark and Spark3
       shading config -->
     <!-- Phoenix excludes commons-beanutils from the Omid dependency, but
       that's basically a bug. We need to add it back, so that we don't depend on
-      hadoop's common-beanutils, which may or may not be shaded. This can be removed 
+      hadoop's common-beanutils, which may or may not be shaded. This can be removed
       once we use a Phoenix version that doesn't have this problem -->
     <dependency>
       <groupId>commons-beanutils</groupId>
