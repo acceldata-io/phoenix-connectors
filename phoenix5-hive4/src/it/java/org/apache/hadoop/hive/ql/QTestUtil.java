@@ -27,6 +27,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PrintStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -50,7 +51,6 @@ import org.apache.hadoop.hive.cli.CliDriver;
 import org.apache.hadoop.hive.cli.CliSessionState;
 import org.apache.hadoop.hive.cli.control.AbstractCliConfig;
 import org.apache.hadoop.hive.common.io.CachingPrintStream;
-import org.apache.hadoop.hive.common.io.SessionStream;
 import org.apache.hadoop.hive.conf.HiveConf;
 import org.apache.hadoop.hive.conf.HiveConf.ConfVars;
 import org.apache.hadoop.hive.ql.metadata.HiveMetaStoreClientWithLocalCache;
@@ -569,7 +569,7 @@ public class QTestUtil {
 
     sem = new SemanticAnalyzer(new QueryState.Builder().withHiveConf(conf).build());
 
-    testWarehouse = conf.getVar(HiveConf.ConfVars.METASTORE_WAREHOUSE);
+    testWarehouse = conf.getVar(HiveConf.ConfVars.METASTOREWAREHOUSE);
 
     db = Hive.get(conf);
     pd = new ParseDriver();
@@ -661,8 +661,8 @@ public class QTestUtil {
 
     CliSessionState ss = new CliSessionState(conf);
     ss.in = System.in;
-    ss.out = new SessionStream(System.out);
-    ss.err = new SessionStream(System.out);
+    ss.out = new PrintStream(System.out);
+    ss.err = new PrintStream(System.out);
 
     SessionState oldSs = SessionState.get();
 
@@ -749,7 +749,7 @@ public class QTestUtil {
    * if you want to use another hive cmd after the failure to sanity check the state of the system.
    */
   private boolean ignoreErrors() {
-    return conf.getBoolVar(HiveConf.ConfVars.CLI_IGNORE_ERRORS);
+    return conf.getBoolVar(HiveConf.ConfVars.CLIIGNOREERRORS);
   }
 
   boolean isHiveCommand(String command) {
@@ -774,7 +774,7 @@ public class QTestUtil {
     //replace ${hiveconf:hive.metastore.warehouse.dir} with actual dir if existed.
     //we only want the absolute path, so remove the header, such as hdfs://localhost:57145
     String wareHouseDir =
-        SessionState.get().getConf().getVar(ConfVars.METASTORE_WAREHOUSE).replaceAll("^[a-zA-Z]+://.*?:\\d+", "");
+        SessionState.get().getConf().getVar(ConfVars.METASTOREWAREHOUSE).replaceAll("^[a-zA-Z]+://.*?:\\d+", "");
     commandArgs = commandArgs.replaceAll("\\$\\{hiveconf:hive\\.metastore\\.warehouse\\.dir\\}", wareHouseDir);
 
     if (SessionState.get() != null) {
