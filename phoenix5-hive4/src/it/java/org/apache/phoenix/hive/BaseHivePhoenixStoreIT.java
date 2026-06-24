@@ -106,7 +106,7 @@ public class BaseHivePhoenixStoreIT extends BaseTest {
         System.setProperty(HiveConf.ConfVars.METASTORE_SCHEMA_VERIFICATION.toString(), "false");
 
         Map<HiveConf.ConfVars, String> testHiveConf = new HashMap<>();
-        testHiveConf.put(HiveConf.ConfVars.METASTOREWAREHOUSE,
+        testHiveConf.put(HiveConf.ConfVars.METASTORE_WAREHOUSE,
             (new Path(testRoot, "warehouse")).toString());
         testHiveConf.put(HiveConf.ConfVars.HIVE_TESTING_REMOVE_LOGS,
             "false");
