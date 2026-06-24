@@ -152,7 +152,7 @@
     <argLine>${phoenix-surefire.argLine} ${phoenix-surefire.jdk8.tuning.flags}</argLine>
 
     <!-- Dependency versions -->
-    <hive4.version>4.0.1.${odp.release.version}</hive4.version>
+    <hive4.version>4.1.0.${odp.release.version}</hive4.version>
     <hive-storage.version>${hive4.version}</hive-storage.version>
     <spark.version>3.5.5.${odp.release.version}</spark.version>
     <scala.version.for.spark>2.12.18</scala.version.for.spark>
