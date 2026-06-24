@@ -27,7 +27,6 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -51,6 +50,7 @@ import org.apache.hadoop.hive.cli.CliDriver;
 import org.apache.hadoop.hive.cli.CliSessionState;
 import org.apache.hadoop.hive.cli.control.AbstractCliConfig;
 import org.apache.hadoop.hive.common.io.CachingPrintStream;
+import org.apache.hadoop.hive.common.io.SessionStream;
 import org.apache.hadoop.hive.conf.HiveConf;
 import org.apache.hadoop.hive.conf.HiveConf.ConfVars;
 import org.apache.hadoop.hive.ql.metadata.HiveMetaStoreClientWithLocalCache;
@@ -661,8 +661,8 @@ public class QTestUtil {
 
     CliSessionState ss = new CliSessionState(conf);
     ss.in = System.in;
-    ss.out = new PrintStream(System.out);
-    ss.err = new PrintStream(System.out);
+    ss.out = new SessionStream(System.out);
+    ss.err = new SessionStream(System.out);
 
     SessionState oldSs = SessionState.get();
 

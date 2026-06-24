@@ -32,6 +32,7 @@ import java.util.regex.Pattern;
 import org.apache.commons.io.output.ByteArrayOutputStream;
 import org.apache.hadoop.hive.cli.CliSessionState;
 import org.apache.hadoop.hive.common.io.DigestPrintStream;
+import org.apache.hadoop.hive.common.io.SessionStream;
 import org.apache.hadoop.hive.common.io.SortAndDigestPrintStream;
 import org.apache.hadoop.hive.common.io.SortPrintStream;
 import org.apache.hadoop.hive.ql.session.SessionState;
@@ -100,7 +101,7 @@ public class QTestResultProcessor {
     } else if (operations.contains(Operation.SORT_N_HASH)) {
       ss.out = new SortAndDigestPrintStream(fo, "UTF-8");
     } else {
-      ss.out = new PrintStream(fo, true, "UTF-8");
+      ss.out = new SessionStream(fo, true, "UTF-8");
     }
   }
 
