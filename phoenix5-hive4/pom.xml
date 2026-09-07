@@ -28,13 +28,13 @@
   <parent>
     <groupId>org.apache.phoenix</groupId>
     <artifactId>phoenix-connectors</artifactId>
-    <version>5.2.1.3.3.6.5-SNAPSHOT</version>
+    <version>5.2.1.3.3.6.6-SNAPSHOT</version>
   </parent>
   <artifactId>phoenix5-hive4</artifactId>
   <name>Phoenix Hive 4 Connector for Phoenix 5</name>
 
   <properties>
-    <odp.release.version>3.3.6.5-SNAPSHOT</odp.release.version>
+    <odp.release.version>3.3.6.6-SNAPSHOT</odp.release.version>
     <top.dir>${project.basedir}/..</top.dir>
     <test.tmp.dir>${project.build.directory}/tmp</test.tmp.dir>
     <hive.version>${hive4.version}</hive.version>
